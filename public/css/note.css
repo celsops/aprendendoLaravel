@@ -1,0 +1,36 @@
+.componente{
+    margin-bottom: 10px;
+}
+
+/*Cabeçario card*/
+.cabecario{
+    display: flex;
+    align-content: right;
+}
+
+.main-content-cabecario{
+    flex: 1;
+}
+
+.content-cabecario{
+    display: inline;
+    width: 10%;
+}
+
+/*Icons*/
+
+.icon{
+    font-size: 24px;
+    cursor: pointer;
+    display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.edit-icon{
+    color: rgb(65, 185, 71);
+}
+
+.delete-icon{
+    color: rgb(211, 24, 24);
+}
