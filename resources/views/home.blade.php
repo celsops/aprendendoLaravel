@@ -24,10 +24,6 @@
     <hr>
     <br>
 
-    @foreach()
-        @component
-        @endcomponent
-    @endforeach 
 
         
 </div>
