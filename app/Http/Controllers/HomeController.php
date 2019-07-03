@@ -25,34 +25,12 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(Request $request)
-    {
-        // var_dump($notes);
-        $param = $request -> all();
-        
-        // var_dump($param);
-
-        if(isset($param['id'])){
-            $id = $param['id'];
-        }   
-        if(isset($param['edit'])){
-            // echo "edit";
-            $note = Note::find($id);
-            // var_dump($note);
-            return view('update',compact('note'));
-            // return redirect('/update',compact('note'));
-        }
-        /*else if(isset($param['delete'])){
-            Note::where('id',$id) -> delete();
-        }*/
-        //$notes = Note::all();
-
-        //$email = Auth::user()->email;
-        //$notes = Note::where("email_fk",$email);
-        //var_dump($notes);
-        $notes = DB::select('select * from notes where email_fk = :email', ['email' => Auth::user()->email]);
+    {   
+        $email = Auth::user()->email;
+        $notes = Note::where('email_fk',$email) -> get();
+        //$notes = DB::select('select * from notes where email_fk = :email', ['email' => Auth::user()->email]);
 
         return view('home', compact('notes'));
-        //$anotacoes = DB::select('select * from notes where email_fk = :email', ['email' => Auth::user()->email]);
-        // return view('home');
+        
     }
 }

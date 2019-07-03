@@ -48,6 +48,15 @@ class NoteController extends Controller
         // return view('update');
         return redirect("/home");
     }
+
+    public function uptade_command(Request $request){
+        $params = $request->all();
+        if (isset($request['id'])){
+            $note = Note::find($request['id']);
+            return view('update', compact('note'));
+        }
+    }
+
     public function store(Request $request) //, $titleNote, $descriptionNote)
     {
         $params = $request->all();
@@ -55,25 +64,11 @@ class NoteController extends Controller
         $email = Auth::user() -> email;
 
         $params['email_fk'] = $email;
-        // array_push($params,$email);
-
-//        var_dump($params);
 
         $note = Note::create($params);
 
         return redirect("/home");
 
-        // echo "Série com id {$note->id} criada: {$note->titleNote}";
-
-        // $title = $params['titleNote'];
-        // $description = $params['descriptionNote'];
-        
-        // $new_note = new Note($title);
-        // $new_note->set_content($description);
-        
-        //DB::insert('insert into notes (email_fk, content_note, title_note) values (?, ?, ?)', [Auth::user()->email, $description, $title]);
-        //echo '<script>alert("HI")</script>';
-        //return redirect('home');
     }
 
 

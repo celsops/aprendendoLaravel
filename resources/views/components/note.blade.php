@@ -10,7 +10,8 @@
                 </div> 
                 
                 <div class="content-cabecario"> 
-                    <a href="?edit=true&id={{$note -> id}}" >
+                    <!--a href="?edit=true&id={{$note -> id}}" -->
+                    <a href="/update-command?id={{$note->id}}">
                         <i class='fas fa-pen icon edit-icon' ></i>  
                     </a>
                     <!--a href="?delete=true&id={{$note -> id}}"-->
