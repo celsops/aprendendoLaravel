@@ -57,7 +57,7 @@ class NoteController extends Controller
         $params['email_fk'] = $email;
         // array_push($params,$email);
 
-        var_dump($params);
+//        var_dump($params);
 
         $note = Note::create($params);
 
@@ -74,5 +74,15 @@ class NoteController extends Controller
         //DB::insert('insert into notes (email_fk, content_note, title_note) values (?, ?, ?)', [Auth::user()->email, $description, $title]);
         //echo '<script>alert("HI")</script>';
         //return redirect('home');
+    }
+
+
+    public function delete_command(Request $request)
+    {
+        $params = $request -> all();
+        if(isset($params['id'])){
+            Note::where('id',$params['id']) -> delete();
+        }
+        return redirect('home');
     }
 }

@@ -13,7 +13,8 @@
                     <a href="?edit=true&id={{$note -> id}}" >
                         <i class='fas fa-pen icon edit-icon' ></i>  
                     </a>
-                    <a href="?delete=true&id={{$note -> id}}">
+                    <!--a href="?delete=true&id={{$note -> id}}"-->
+                    <a href="/delete-note-command?id={{$note->id}}">
                         <i class='far fa-times-circle icon delete-icon' ></i>
                     </a>
                 </div>

@@ -41,10 +41,14 @@ class HomeController extends Controller
             return view('update',compact('note'));
             // return redirect('/update',compact('note'));
         }
-        else if(isset($param['delete'])){
+        /*else if(isset($param['delete'])){
             Note::where('id',$id) -> delete();
-        }
+        }*/
         //$notes = Note::all();
+
+        //$email = Auth::user()->email;
+        //$notes = Note::where("email_fk",$email);
+        //var_dump($notes);
         $notes = DB::select('select * from notes where email_fk = :email', ['email' => Auth::user()->email]);
 
         return view('home', compact('notes'));
