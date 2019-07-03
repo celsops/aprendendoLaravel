@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Note;
 
 class HomeController extends Controller
@@ -41,11 +42,10 @@ class HomeController extends Controller
             // return redirect('/update',compact('note'));
         }
         else if(isset($param['delete'])){
-            echo "delete";
             Note::where('id',$id) -> delete();
         }
-        $notes = Note::all();
-
+        //$notes = Note::all();
+        $notes = DB::select('select * from notes where email_fk = :email', ['email' => Auth::user()->email]);
 
         return view('home', compact('notes'));
         //$anotacoes = DB::select('select * from notes where email_fk = :email', ['email' => Auth::user()->email]);
