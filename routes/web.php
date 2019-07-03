@@ -22,3 +22,5 @@ Route::get('/teste', 'TesteController@index')->name('teste');
 Route::get('/create-note', 'NoteController@create')->name('createNote');
 Route::get('/resultado-cadastro', 'NoteController@store')->name('result-criation'); 
 Route::get('/update', 'NoteController@update')->name('update'); 
+Route::get('/delete-note-command', 'NoteController@delete_command')->name('delete-note-command');
+Route::get('/update-command', 'NoteController@uptade_command')->name('update-command');
