@@ -18,7 +18,7 @@ class CreateNotesTable extends Migration
             $table->string('email_fk'); //Foreign Key
             $table->text('content_note'); //Content
             $table->string('title_note', 100)->nullable(); //Title
-            $table->timestamps();
+            // $table->timestamps();
         });
     }
 

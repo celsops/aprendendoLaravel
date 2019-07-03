@@ -1,12 +1,12 @@
 <div class="row justify-content-center componente">
 
     <link href="{{ asset('css/note.css') }}" rel="stylesheet">
-   
+    @foreach($notes as $note)
     <div class="col-md-8">
         <div class="card">
             <div class="card-header cabecario">
                 <div class="main-content-cabecario"> 
-                    {{ $data['title'] }} 
+                    {{ $note -> title_note }} 
                 </div> 
                 
                 <div class="content-cabecario"> 
@@ -18,10 +18,11 @@
             </div>
             
             <div class="card-body">
-                {{ $data['text'] }}
+                {{ $note -> content_note }}
             </div>
         </div>
     </div>
+    @endforeach
 </div>
 
 

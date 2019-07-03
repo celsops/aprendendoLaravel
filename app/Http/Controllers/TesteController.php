@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Note;
 class TesteController extends Controller
 {
     /**
@@ -21,8 +21,25 @@ class TesteController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('teste');
+        $param = $request -> all();
+
+        
+        var_dump($param);
+
+        if(isset($param['id'])){
+            $id = $param['id'];
+        }   
+        if(isset($param['edit'])){
+            echo "edit";
+        }
+        else if(isset($param['delete'])){
+            echo "delete";
+            Note::where('id',$id) -> delete();
+        }
+        $notes = Note::all();
+        // Note::where('id',1) -> delete();
+        return view('teste',compact('notes'));
     }
 }

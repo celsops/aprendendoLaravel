@@ -6,10 +6,11 @@ class Note extends Model{
     
     private $title;
     public $content;
-
-    public function __construct(String $InformedTitle){
-        $this->title = $InformedTitle;
-    }
+    public $timestamps = false;
+    protected $fillable = ['title_note','content_note','email_fk'];
+    // public function __construct(String $InformedTitle){
+    //     $this->title = $InformedTitle;
+    // }
 
     public function get_content(){
         return $this->content;

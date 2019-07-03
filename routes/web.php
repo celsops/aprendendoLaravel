@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/teste', 'TesteController@index')->name('teste');
 Route::get('/create-note', 'NoteController@create')->name('createNote');
 Route::get('/resultado-cadastro', 'NoteController@store')->name('result-criation'); 
+Route::get('/update', 'NoteController@update')->name('update'); 
